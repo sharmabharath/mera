@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/homepage.dart';
+/*import 'package:flutterapp/page.dart';*/
 
 import 'signup.dart';
 
@@ -101,7 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.green,
                         elevation: 7.0,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new HomePage()));
+
+                          },
                           child: Center(
                             child: Text(
                               'LOGIN',
