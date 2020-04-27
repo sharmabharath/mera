@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/home.dart';
 import 'package:flutterapp/homepage.dart';
 /*import 'package:flutterapp/page.dart';*/
 
@@ -105,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pop();
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new HomePage()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new AppClock()));
 
                           },
                           child: Center(
