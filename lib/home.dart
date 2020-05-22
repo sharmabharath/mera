@@ -5,6 +5,12 @@ import 'screens/second_screen.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  /*TimeOfDay _time = TimeOfDay.now();
+  
+  Future<Null> selectTime(BuildContext context) async {
+    _time = await showTimePicker(context: context, initialTime: _time);
+
+  }*/
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,6 +26,8 @@ class MyApp extends StatelessWidget {
 }
 
 class AppClock extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,7 +96,25 @@ class AppClock extends StatelessWidget {
   }
 }
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends StatefulWidget {
+  @override
+  _BottomBarState createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  TimeOfDay _time = TimeOfDay.now();
+
+  TimeOfDay picked;
+
+  Future<Null> selectTime(BuildContext context) async {
+    picked = await showTimePicker(context: context, initialTime: _time);
+
+    setState(() {
+      _time = picked;
+      print(_time);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -120,7 +146,10 @@ class BottomBar extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontSize: 25),
             ),
-            onPressed: () {},
+            onPressed: () {
+              selectTime(context);
+              print(_time);
+            }  ,
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
             elevation: 5,
