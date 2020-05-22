@@ -1,28 +1,8 @@
 /*import 'package:flutter/clock/clock.dart';*/
 import 'package:flutterapp/clock/clock.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/home.dart';
 
-class FirstTab extends StatefulWidget {
-  @override
-  _FirstTabState createState() => _FirstTabState();
-}
-
-class _FirstTabState extends State<FirstTab> {
-  TimeOfDay _time = TimeOfDay.now();
-
-  TimeOfDay picked;
-
-  Future<Null> selectTime(BuildContext context) async {
-    picked = await showTimePicker(context: context, initialTime: _time);
-
-    setState(() {
-      _time = picked;
-      print(_time);
-    });
-  }
-
-
+class FirstTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
